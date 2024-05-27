@@ -1,13 +1,14 @@
 import React, { useState } from 'react'
 import { BsMortarboardFill } from "react-icons/bs";
 
-// for login data
-const [LoginData, SetLoginData] = useState({
-    email: '',
-    password: ''
-})
+
 
 const SignIn = () => {
+    // for login data
+    const [LoginData, SetLoginData] = useState({
+        email: '',
+        password: ''
+    })
   return (
     <div className='bg-gray-200 min-h-screen py-16 px-8'>
         <div className="md:grid grid-cols-3 gap-2">
@@ -23,9 +24,13 @@ const SignIn = () => {
                     <hr className='my-2'/>
                     <div className="my-4">
                         <form action="">
-                            <div className="my-2">
-                                <label htmlFor="">Email : </label>
-                                <input type="email" name="" id="" className="h-12 pl-2 rounded bg-gray-200" required placeholder='Enter Email Address' />
+                            <div className="my-2 md:mx-8">
+                                <label htmlFor="" className=''>Email : </label>
+                                <input type="email" name="" id="" className="w-full h-12 pl-2 rounded bg-gray-200" required placeholder='Enter Email Address' />
+                            </div>
+                            <div className="my-2 md:mx-8">
+                                <label htmlFor="" className=''>Password : </label>
+                                <input type="password" name="" id="" className="w-full h-12 pl-2 rounded bg-gray-200" required placeholder='Enter Password' />
                             </div>
                         </form>
                     </div>
