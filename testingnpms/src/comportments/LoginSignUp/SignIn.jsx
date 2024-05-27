@@ -1,6 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { BsMortarboardFill } from "react-icons/bs";
 
+// for login data
+const [LoginData, SetLoginData] = useState({
+    email: '',
+    password: ''
+})
 
 const SignIn = () => {
   return (
@@ -16,6 +21,14 @@ const SignIn = () => {
                         <p className="">Your Project Name</p>
                     </center>
                     <hr className='my-2'/>
+                    <div className="my-4">
+                        <form action="">
+                            <div className="my-2">
+                                <label htmlFor="">Email : </label>
+                                <input type="email" name="" id="" className="h-12 pl-2 rounded bg-gray-200" required placeholder='Enter Email Address' />
+                            </div>
+                        </form>
+                    </div>
                 </div>  
             </div>
             <div className=""></div>
