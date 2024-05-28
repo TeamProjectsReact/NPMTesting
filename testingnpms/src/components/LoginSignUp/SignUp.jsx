@@ -33,7 +33,7 @@ const SignUp = () => {
                     <div className="my-4">
                         <form onSubmit={headleSubmit}>
                              <div className="my-2 md:mx-8">
-                                <label htmlFor="" className=''>USername : </label>
+                                <label htmlFor="" className=''>Username : </label>
                                 <input type="text" name="" id="" className="w-full h-12 pl-2 rounded bg-gray-200" required placeholder='Enter Username'
                                 onChange={e => SetSignUpData({...SignUpData, username:e.target.value})}/>
                             </div>
