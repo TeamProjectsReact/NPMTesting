@@ -3,6 +3,7 @@ import SignIn from "./components/LoginSignUp/SignIn";
 import SignUp from "./components/LoginSignUp/SignUp";
 import EditorTest from "./components/TestinEditor/EditorTest";
 import NewEditor from "./components/TestinEditor/NewEditor";
+import TestingPack from "./components/TestingPackege/TestingPack";
 
 
 export default function App() {
@@ -13,6 +14,7 @@ export default function App() {
         <Route path="/SignUp" element={<SignUp />} />
         <Route path="/EditorTest" element={<EditorTest /> } />
         <Route path="/NewEditor" element={<NewEditor />} />
+        <Route path="/TestingPack" element={<TestingPack />} />
       </Routes> 
     </BrowserRouter>
   )
