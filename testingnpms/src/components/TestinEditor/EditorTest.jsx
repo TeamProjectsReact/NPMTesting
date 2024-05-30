@@ -9,6 +9,7 @@ const EditorTest = () => {
       setOutputText(inputText);
     };
   
+    // headle the bold
     const handleBold = () => {
       const textarea = textareaRef.current; // get the current selected area in textarea
       const start = textarea.selectionStart; //html textarea input in javascript property (selectionStart) => when user select some charaters in textarea the (selectionStart) is the starting point of the selection
@@ -16,7 +17,7 @@ const EditorTest = () => {
   
       if (start === end) return; // No text is selected
   
-      const before = inputText.substring(0, start);
+      const before = inputText.substring(0, start); // 
       const selected = inputText.substring(start, end);
       const after = inputText.substring(end);
   
