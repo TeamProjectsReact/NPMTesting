@@ -25,14 +25,60 @@ const NewEditor = () => {
       setInputText(newText);
     };
 
+        // headle the handleItalic
+    const handleItalic  = () => {
+      const textarea = textareaRef.current; // get the current selected area in textarea
+      const start = textarea.selectionStart; //html textarea input in javascript property (selectionStart) => when user select some charaters in textarea the (selectionStart) is the starting point of the selection
+      const end = textarea.selectionEnd; //html textarea input in javascript property (selectionEnd) => when user select some charaters in textarea the (selectionStart) is the ending point of the selection
+  
+      if (start === end) return; // No text is selected
+  
+      const before = inputText.substring(0, start); // get the before string in selection start
+      const selected = inputText.substring(start, end); // get the selected text
+      const after = inputText.substring(end); // last sting of the selection
+  
+      const newText = `${before}<i>${selected}</i>${after}`; // ** use this for bold text
+      setInputText(newText);
+    };
+
+
+    // headle the handleItalic
+    const handleUnderLine  = () => {
+      const textarea = textareaRef.current; // get the current selected area in textarea
+      const start = textarea.selectionStart; //html textarea input in javascript property (selectionStart) => when user select some charaters in textarea the (selectionStart) is the starting point of the selection
+      const end = textarea.selectionEnd; //html textarea input in javascript property (selectionEnd) => when user select some charaters in textarea the (selectionStart) is the ending point of the selection
+  
+      if (start === end) return; // No text is selected
+  
+      const before = inputText.substring(0, start); // get the before string in selection start
+      const selected = inputText.substring(start, end); // get the selected text
+      const after = inputText.substring(end); // last sting of the selection
+  
+      const newText = `${before}<u>${selected}</u>${after}`; // ** use this for bold text
+      setInputText(newText);
+    };
+
+
   return (
         <div className="min-h-screen bg-gray-100 p-4">
-           <div className="w-full max-w-md flex justify-between mb-4">
+           <div className="flex mb-4">
             <button
               className="p-2 bg-green-500 text-white font-semibold rounded-md shadow-sm hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-500"
               onClick={handleBold}
             >
               Bold
+            </button>
+            <button
+              className="mx-4 p-2 bg-green-500 text-white font-semibold rounded-md shadow-sm hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-500"
+              onClick={handleItalic}
+            >
+              Italic
+            </button>
+            <button
+              className="mx-4 p-2 bg-green-500 text-white font-semibold rounded-md shadow-sm hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-500"
+              onClick={handleUnderLine}
+            >
+              Underline
             </button>
           </div>
           <textarea
