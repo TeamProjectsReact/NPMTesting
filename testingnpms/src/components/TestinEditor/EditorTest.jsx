@@ -10,9 +10,9 @@ const EditorTest = () => {
     };
   
     const handleBold = () => {
-      const textarea = textareaRef.current; 
+      const textarea = textareaRef.current; // get the current selected area in textarea
       const start = textarea.selectionStart; //html textarea input in javascript property (selectionStart) => when user select some charaters in textarea the (selectionStart) is the starting point of the selection
-      const end = textarea.selectionEnd;
+      const end = textarea.selectionEnd; //html textarea input in javascript property (selectionEnd) => when user select some charaters in textarea the (selectionStart) is the ending point of the selection
   
       if (start === end) return; // No text is selected
   
