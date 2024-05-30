@@ -21,7 +21,7 @@ const NewEditor = () => {
       const selected = inputText.substring(start, end); // get the selected text
       const after = inputText.substring(end); // last sting of the selection
   
-      const newText = `${before}<u>${selected}</u>${after}`; // ** use this for bold text
+      const newText = `${before}**${selected}**${after}`; // ** use this for bold text
       setInputText(newText);
     };
 
