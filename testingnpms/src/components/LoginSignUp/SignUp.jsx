@@ -14,7 +14,7 @@ const SignUp = () => {
     const headleSubmit = (e) => {
         e.preventDefault();
 
-        // login to system
+        // signup to system
         // this will be updated in future versions
     }
   return (
