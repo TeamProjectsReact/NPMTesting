@@ -30,6 +30,9 @@ const TestingPack = () => {
       console.log(err)
     }
   }
+
+  const [text, setText] = useState('');
+
   return (
     <div className='my-8 mx-12'>
         <p className="">
@@ -44,11 +47,14 @@ const TestingPack = () => {
             onChange={e => SetEditorData({...EditorData, title:e.target.value})}/>
           </div>
           <div className="">
-            <Editor FormValue={e => SetEditorData({...EditorData, dataEditor:e.target.value})}/>
+            <Editor value={text} OutputTest={setText}/>
           </div>
 
           <button type="submit" className="bg-green-500 py-2 px-4 rounded text-white">Submit</button>
         </form>
+        <div className="w-full max-w-md p-2 bg-white border border-gray-300 rounded-md shadow-sm">
+          <div dangerouslySetInnerHTML={{ __html: text.replace(/\*\*(.*?)\*\*/g, '<b>$1</b>') }} />
+        </div>
         
 
         <p className="py-8">
