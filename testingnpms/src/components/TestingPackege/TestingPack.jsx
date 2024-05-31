@@ -4,33 +4,36 @@ import axios from 'axios'
 
 const TestingPack = () => {
   // send backend
-  // const [EditorData, SetEditorData] = useState({
-  //   title: '',
-  //   dataEditor: '',
-  // })
+  const [EditorData, SetEditorData] = useState({
+    title: '',
+  })
+
+  const [text, setText] = useState('');
 
   // headleSubmit
 
-  // const headleSubmit = async (e) => {
-  //   e.preventDefault()
+  const headleSubmit = async (e) => {
+    e.preventDefault()
 
-  //   try{
-  //     const res = await axios.post('http://localhost:8081/AddEditorData', EditorData)
-  //     .then(res => {
-  //       if(res.data.Status === "Success"){
-  //         alert("Editor Data Added Successful")
-  //         window.location.reload()
-  //       }
-  //       else{
-  //         alert(res.data.Error)
-  //       }
-  //     })
-  //   }
-  //   catch (err) {
-  //     console.log(err)    }
-  // }
+    try{
+      const res = await axios.post('http://localhost:8081/AddEditorData', {EditorData, text})
+      .then(res => {
+        if(res.data.Status === "Success"){
+          alert("Editor Data Added Successful")
+          window.location.reload()
+          setText('')          
+        }
+        else{
+          alert(res.data.Error)
+        }
+      })
+    }
+    catch (err) {
+      console.log(err)   
+    }
+  }
 
-  const [text, setText] = useState('');
+  
 
   return (
     <div className='my-8 mx-12'>
@@ -38,10 +41,18 @@ const TestingPack = () => {
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Itaque eaque nihil error sequi dignissimos totam distinctio impedit. Nesciunt nobis itaque eligendi quae, temporibus placeat ratione animi illo, vel assumenda ut!
         </p>
 
+          <form onSubmit={headleSubmit}>
+            <input type="text" name="" id="" className='h-12 bg-gray-200 rounded'
+            onChange={e => SetEditorData({...EditorData, title:e.target.value})}/>
+          
 
-          <div className="">
-            <Editor dataValue={text} OutputTest={setText}/>
-          </div>
+            <div className="">
+              <Editor dataValue={text} OutputTest={setText}/>
+            </div>
+
+
+            <button type="submit" className="py-2 px-8 bg-blue-500 text-white rounded">Submit</button>
+          </form>
 
 
         <div className="w-full p-2 bg-white border border-gray-300 rounded-md shadow-sm">
