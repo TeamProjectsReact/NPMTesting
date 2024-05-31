@@ -74,6 +74,23 @@ const TestingPack = () => {
             Sapiente quos voluptates dolore laboriosam, asperiores ipsa explicabo tenetur, praesentium dignissimos ullam, voluptatem ea! Enim, exercitationem eum. Odio, dolore error est iure aspernatur tenetur molestias. Non, nemo eligendi? Autem, delectus.
             Adipisci quo nobis odit delectus fugit, veniam laboriosam qui ea est illo voluptatum ut rem consequuntur corporis modi error eligendi soluta at nam fuga atque labore nisi praesentium nihil. Et.
         </p>
+
+        <div className="my-8">
+          <div className="bg-gray-200 rounded py-2 px4">
+            {
+              GetData.map((Data, index) => {
+                return (
+                  <div className="">
+                    <h1 className="">{Data.editor_title}</h1>
+                    <p className="">
+                      {Data.editor_data}
+                    </p>
+                  </div>
+                )
+              })
+            }
+          </div>
+        </div>
     </div>
   )
 }
