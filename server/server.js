@@ -64,4 +64,14 @@ app.post('/AddEditorData', (req, res) => {
     })
 })
 
+app.get('/DisplayData', (req, res) => {
+    const tableName = "editor_data"
+
+    JkMysql.SelectAllData(connection, tableName, (result) => {
+        if(result){
+            res.json({Result: result})
+        }
+    })
+})
+
 app.listen(PORT, () => console.log(`Server is Running on PORT ${PORT}`));
