@@ -48,6 +48,8 @@ app.use(express.static('public'));
 
 // endpoints
 
-
+app.post('/AddEditorData', (req, res) => {
+    console.log(req.body)
+})
 
 app.listen(PORT, () => console.log(`Server is Running on PORT ${PORT}`));
