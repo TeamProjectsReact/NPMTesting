@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Editor } from 'js-wysiwyg-editor'
+import axios from 'axios'
 
 const TestingPack = () => {
   // send backend
@@ -8,6 +9,27 @@ const TestingPack = () => {
     dataEditor: '',
   })
 
+  // headleSubmit
+
+  const headleSubmit = async (e) => {
+    e.preventDefault()
+
+    try{
+      const res = await axios.post('http://localhost:8081/AddEditorData', EditorData)
+      .then(res => {
+        if(res.data.Status === "Success"){
+          alert("Editor Data Added Successful")
+          window.location.reload()
+        }
+        else{
+          alert(res.data.Error)
+        }
+      })
+    }
+    catch (err) {
+      console.log(err)
+    }
+  }
   return (
     <div className='my-8 mx-12'>
         <p className="">
@@ -15,7 +37,7 @@ const TestingPack = () => {
         </p>
 
 
-        <form>
+        <form onSubmit={headleSubmit}>
           <div className="">
             <label htmlFor="">Title</label>
             <input type="text" name="" id="" className="h-12 bg-gray-200 rounded pl-2 my-4" required placeholder='Title'
