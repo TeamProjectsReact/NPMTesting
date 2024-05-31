@@ -4,32 +4,31 @@ import axios from 'axios'
 
 const TestingPack = () => {
   // send backend
-  const [EditorData, SetEditorData] = useState({
-    title: '',
-    dataEditor: '',
-  })
+  // const [EditorData, SetEditorData] = useState({
+  //   title: '',
+  //   dataEditor: '',
+  // })
 
   // headleSubmit
 
-  const headleSubmit = async (e) => {
-    e.preventDefault()
+  // const headleSubmit = async (e) => {
+  //   e.preventDefault()
 
-    try{
-      const res = await axios.post('http://localhost:8081/AddEditorData', EditorData)
-      .then(res => {
-        if(res.data.Status === "Success"){
-          alert("Editor Data Added Successful")
-          window.location.reload()
-        }
-        else{
-          alert(res.data.Error)
-        }
-      })
-    }
-    catch (err) {
-      console.log(err)
-    }
-  }
+  //   try{
+  //     const res = await axios.post('http://localhost:8081/AddEditorData', EditorData)
+  //     .then(res => {
+  //       if(res.data.Status === "Success"){
+  //         alert("Editor Data Added Successful")
+  //         window.location.reload()
+  //       }
+  //       else{
+  //         alert(res.data.Error)
+  //       }
+  //     })
+  //   }
+  //   catch (err) {
+  //     console.log(err)    }
+  // }
 
   const [text, setText] = useState('');
 
@@ -40,18 +39,11 @@ const TestingPack = () => {
         </p>
 
 
-        <form onSubmit={headleSubmit}>
           <div className="">
-            <label htmlFor="">Title</label>
-            <input type="text" name="" id="" className="h-12 bg-gray-200 rounded pl-2 my-4" required placeholder='Title'
-            onChange={e => SetEditorData({...EditorData, title:e.target.value})}/>
-          </div>
-          <div className="">
-            <Editor value={text} OutputTest={setText}/>
+            <Editor dataValue={text} OutputTest={setText}/>
           </div>
 
-          <button type="submit" className="bg-green-500 py-2 px-4 rounded text-white">Submit</button>
-        </form>
+
         <div className="w-full max-w-md p-2 bg-white border border-gray-300 rounded-md shadow-sm">
           <div dangerouslySetInnerHTML={{ __html: text.replace(/\*\*(.*?)\*\*/g, '<b>$1</b>') }} />
         </div>
