@@ -21,7 +21,6 @@ const TestingPack = () => {
         if(res.data.Status === "Success"){
           alert("Editor Data Added Successful")
           window.location.reload()
-          setText('')          
         }
         else{
           alert(res.data.Error)
