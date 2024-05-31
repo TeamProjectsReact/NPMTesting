@@ -49,11 +49,11 @@ app.use(express.static('public'));
 // endpoints
 
 app.post('/AddEditorData', (req, res) => {
-    // console.log(req.body.EditorData)
+    // console.log(req.body.EditorData.title)
 
     const tableName = "editor_data"
     const data = {
-        editor_title: req.body.EditorData,
+        editor_title: req.body.EditorData.title,
         editor_data: req.body.text
     }
 
