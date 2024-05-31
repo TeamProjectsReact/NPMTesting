@@ -4,7 +4,7 @@ import axios from 'axios'
 
 const TestingPack = () => {
   // send backend
-  cosnt [EditorData, SetEditorData] = useState({
+  const [EditorData, SetEditorData] = useState({
     title: '',
     dataEditor: '',
   })
