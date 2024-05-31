@@ -1,14 +1,33 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Editor } from 'js-wysiwyg-editor'
 
 const TestingPack = () => {
+  // send backend
+  cosnt [EditorData, SetEditorData] = useState({
+    title: '',
+    dataEditor: '',
+  })
+
   return (
     <div className='my-8 mx-12'>
         <p className="">
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Itaque eaque nihil error sequi dignissimos totam distinctio impedit. Nesciunt nobis itaque eligendi quae, temporibus placeat ratione animi illo, vel assumenda ut!
         </p>
 
-        <Editor />
+
+        <form>
+          <div className="">
+            <label htmlFor="">Title</label>
+            <input type="text" name="" id="" className="h-12 bg-gray-200 rounded pl-2 my-4" required placeholder='Title'
+            onChange={e => SetEditorData({...EditorData, title:e.target.value})}/>
+          </div>
+          <div className="">
+            <Editor onChange={e => SetEditorData({...EditorData, dataEditor:e.target.value})}/>
+          </div>
+
+          <button type="submit" className="bg-green-500 py-2 px-4 rounded text-white">Submit</button>
+        </form>
+        
 
         <p className="py-8">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga natus perspiciatis consequuntur aut delectus at, suscipit quisquam voluptatum, fugiat adipisci quibusdam possimus illum corrupti iusto sunt, inventore quae. Alias, nesciunt.
