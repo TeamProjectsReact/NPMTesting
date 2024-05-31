@@ -44,7 +44,7 @@ const TestingPack = () => {
             onChange={e => SetEditorData({...EditorData, title:e.target.value})}/>
           </div>
           <div className="">
-            <Editor onChange={e => SetEditorData({...EditorData, dataEditor:e.target.value})}/>
+            <Editor FormValue={e => SetEditorData({...EditorData, dataEditor:e.target.value})}/>
           </div>
 
           <button type="submit" className="bg-green-500 py-2 px-4 rounded text-white">Submit</button>
