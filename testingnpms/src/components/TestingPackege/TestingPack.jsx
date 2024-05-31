@@ -83,7 +83,7 @@ const TestingPack = () => {
                   <div className="">
                     <h1 className="">{Data.editor_title}</h1>
                     <p className="">
-                      {Data.editor_data}
+                    <div dangerouslySetInnerHTML={{ __html: Data.editor_data.replace(/\*\*(.*?)\*\*/g, '<b>$1</b>') }} />
                     </p>
                   </div>
                 )
