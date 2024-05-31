@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Editor } from 'js-wysiwyg-editor'
 import axios from 'axios'
 
@@ -31,6 +31,14 @@ const TestingPack = () => {
       console.log(err)   
     }
   }
+
+  const [GetData, SetGetData] = useState([])
+
+  useEffect(() => {
+    axios.get('http://localhost:8081/DisplayData')
+    .then(res => SetGetData(res.data.Result))
+    .catch(err => console.log(err))
+  }, [])
 
   
 
