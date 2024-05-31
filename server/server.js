@@ -51,7 +51,10 @@ app.use(express.static('public'));
 app.post('/AddEditorData', (req, res) => {
     console.log(req.body)
 
-    const tableName = ""
+    // const tableName = "editor_data"
+    // const data = {
+
+    // }
 })
 
 app.listen(PORT, () => console.log(`Server is Running on PORT ${PORT}`));
