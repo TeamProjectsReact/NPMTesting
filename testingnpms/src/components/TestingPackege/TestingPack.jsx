@@ -44,7 +44,7 @@ const TestingPack = () => {
           </div>
 
 
-        <div className="w-full max-w-md p-2 bg-white border border-gray-300 rounded-md shadow-sm">
+        <div className="w-full p-2 bg-white border border-gray-300 rounded-md shadow-sm">
           <div dangerouslySetInnerHTML={{ __html: text.replace(/\*\*(.*?)\*\*/g, '<b>$1</b>') }} />
         </div>
         
