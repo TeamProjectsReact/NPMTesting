@@ -10,6 +10,7 @@
     "SignInUp": "node node_modules/login-signup-react/index.js --destination=src/components/LoginSignUp"
   },
   "dependencies": {
+    "@jehankandy/react-jkcss": "file:jehankandy-react-jkcss-1.2.0.tgz",
     "axios": "^1.7.2",
     "js-wysiwyg-editor": "file:js-wysiwyg-editor-1.0.1.tgz",
     "login-signup-react": "file:login-signup-react-1.1.0.tgz",
