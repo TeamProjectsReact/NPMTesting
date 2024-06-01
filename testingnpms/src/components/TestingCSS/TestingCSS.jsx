@@ -1,12 +1,12 @@
 import React from 'react'
-import {ButtonLargeBlue, ButtonBlue, ButtonRed, ButtonGray, ButtonGreen, ButtonInfo, ButtonYellow, ButtonCustom, BasicTable, BasicTableHover} from '@jehankandy/react-jkcss'
+import { ButtonCustomLarge, ButtonCustomSmall } from '@jehankandy/react-jkcss'
 
 
 const TestingCSS = () => {
   return (
     <div>
-        <ButtonLargeBlue>Hi all</ButtonLargeBlue>
-        <ButtonBlue>Hi all</ButtonBlue>
+        <ButtonCustomLarge bgColor={"pink"} textColor={'white'}>Hi all</ButtonCustomLarge>
+        <ButtonCustomSmall bgColor={"purple"} textColor={'white'}>Hi all</ButtonCustomSmall>
     </div>
   )
 }
