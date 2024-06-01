@@ -6,6 +6,7 @@ const TestingCSS = () => {
   return (
     <div>
         <ButtonLargeBlue>Hi all</ButtonLargeBlue>
+        <ButtonBlue>Hi all</ButtonBlue>
     </div>
   )
 }
