@@ -44,32 +44,32 @@ app.post('/SignUp', (req, res) => {
             return res.json({ Error: "User Already Exists"})
         }
         else{
-            bcrypt.hash(req.body.password, 10 (err, PassHash))
-
-            if(PassHash){
-                const tableName = 'users';
-                const data = { 
-                    username: req.body.username, 
-                    email: req.body.email,
-                    password: PassHash,
-                    role: "User", //change this as you need
-                    create_at: Date.now(),
-                    is_active: 1,
-                    is_lock: 0
-                };
-                        
-                JkMysql.insertData(connection, tableName, data, (result) => {
-                    if(result) {
-                        return res.json({ Status: "Success" })
-                    }
-                    else{
-                        return res.json({ Error: "Internal Server Error While Adding user in to database"})
-                    }
-                });
-            }
-            else{
-                return res.json({ Error: "Internal Servaer Error While Hashing Password"})
-            }
+            bcrypt.hash(req.body.password, 10, (err, PassHash) => {
+                if(PassHash){
+                    const tableName = 'users';
+                    const data = { 
+                        username: req.body.username, 
+                        email: req.body.email,
+                        password: PassHash,
+                        role: "User", //change this as you need
+                        create_at: Date.now(),
+                        is_active: 1,
+                        is_lock: 0
+                    };
+                            
+                    JkMysql.insertData(connection, tableName, data, (result) => {
+                        if(result) {
+                            return res.json({ Status: "Success" })
+                        }
+                        else{
+                            return res.json({ Error: "Internal Server Error While Adding user in to database"})
+                        }
+                    });
+                }
+                else{
+                    return res.json({ Error: "Internal Servaer Error While Hashing Password"})
+                }
+            }) 
         }
     })
 })
