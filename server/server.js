@@ -28,7 +28,9 @@ app.use(cors())
 // all endpoint start
 
 app.post('/SignUp', (req, res) => {
-    console.log(req.body)
+    // console.log(req.body)
+
+    const tableName = "users"
 })
 
 // all endpoints end
