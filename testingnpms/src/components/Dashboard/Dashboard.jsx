@@ -7,6 +7,12 @@ const Dashboard = () => {
     const RoleUser = secureLocalStorage.getItem("Login1");
     const EmailUser = secureLocalStorage.getItem("login2");
 
+    const logout = () => {
+        localStorage.clear()
+        navigate('/')
+        window.location.reload();
+    }
+
     if(RoleUser !== null && EmailUser !== null){
         return (
             <div className='bg-gray-200 py-8 px-12'>
@@ -18,6 +24,7 @@ const Dashboard = () => {
                         <p className="text-xl text-gray-500">Email : { EmailUser }</p>
                         <p className="text-xl text-gray-500">Role: { RoleUser }</p>                        
                     </div>
+                    <button onClick={logout} className="bg-red-500 text-white rounded py-2 px-4 shadow-md duration-500 hover:bg-red-600 font-semibold">Logout</button>
                 </div>
             </div>
         )
