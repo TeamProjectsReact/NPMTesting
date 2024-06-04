@@ -14,6 +14,7 @@ const PORT = process.env.PORT || 8081
 
 
 // make connection between server and mysql database
+// change the 'db_npm_testing' according to your database name
 const connection = JkMysql.ConnectToDatabase('localhost', 'root', '1234', 'db_npm_testing')
 
 // configurate email sending 
@@ -30,6 +31,7 @@ app.use(cors())
 app.post('/SignUp', (req, res) => {
     // console.log(req.body)
 
+    // table will be change according to your table name
     const tableName = "users"
     const columns = []
     const conditions = {
@@ -45,8 +47,25 @@ app.post('/SignUp', (req, res) => {
             bcrypt.hash(req.body.password, 10 (err, PassHash))
 
             if(PassHash){
-                const tableName = "users"
-                
+                const tableName = 'users';
+                const data = { 
+                    username: req.body.username, 
+                    email: req.body.email,
+                    password: PassHash,
+                    role: "User", //change this as you need
+                    create_at: Date.now(),
+                    is_active: 1,
+                    is_lock: 0
+                };
+                        
+                JkMysql.insertData(connection, tableName, data, (result) => {
+                    if(result) {
+                        return res.json({ Status: "Success" })
+                    }
+                    else{
+                        return res.json({ Error: "Internal Server Error While Adding user in to database"})
+                    }
+                });
             }
             else{
                 return res.json({ Error: "Internal Servaer Error While Hashing Password"})
