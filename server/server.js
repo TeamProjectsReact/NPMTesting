@@ -36,6 +36,15 @@ app.post('/SignUp', (req, res) => {
         username: req.body.username,
         email: req.body.email,
     }
+
+    JkMysql.SelectByOR(connection, tableName, columns, conditions, (result) => {
+        if(result.length > 0){
+            return res.json({ Error: "User Already Exists"})
+        }
+        else{
+            
+        }
+    })
 })
 
 // all endpoints end
