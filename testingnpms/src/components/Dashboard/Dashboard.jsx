@@ -9,8 +9,10 @@ const Dashboard = () => {
 
     if(RoleUser !== null && EmailUser !== null){
         return (
-            <div>
-        
+            <div className='bg-gray-200 py-8 px-12'>
+                <div className="bg-white rounded py-8 px-4">
+                    <h1 className="text-gray-500 font-semibold text-2xl">Welcome to Dashboard</h1>
+                </div>
             </div>
         )
     }
@@ -20,7 +22,6 @@ const Dashboard = () => {
             navigate('/')
         })
     }
-
 }
 
 export default Dashboard
