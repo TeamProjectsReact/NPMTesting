@@ -75,7 +75,17 @@ app.post('/SignUp', (req, res) => {
 })
 
 app.post('/SignIn', (req, res) => {
-    
+    const tableName = "users"
+    const columnData = { email: req.body.email }
+
+    JkMysql.SelectData(connection, tableName, columnData, (result) => {
+        if(result.length === 0){
+            return res.json({ Error: "No User Found"})
+        } 
+        else{
+            
+        }
+    })
 })
 
 // all endpoints end
