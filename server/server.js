@@ -42,7 +42,14 @@ app.post('/SignUp', (req, res) => {
             return res.json({ Error: "User Already Exists"})
         }
         else{
-            
+            bcrypt.hash(req.body.password, 10 (err, PassHash))
+
+            if(PassHash){
+
+            }
+            else{
+                return res.json({ Error: "Internal Servaer Error While Hashing Password"})
+            }
         }
     })
 })
