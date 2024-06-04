@@ -83,7 +83,16 @@ app.post('/SignIn', (req, res) => {
             return res.json({ Error: "No User Found"})
         } 
         else{
-            
+            const password = req.body.password;
+
+            bcrypt.compare(password, result[0].password, (err, MatchPass) => {
+                if(MatchPass) {
+
+                }
+                else{
+                    return res.json({ Error: "Password not Match" })
+                }
+            })
         }
     })
 })
