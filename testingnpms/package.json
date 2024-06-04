@@ -7,7 +7,6 @@
     "dev": "vite",
     "build": "vite build",
     "serve": "vite preview",
-    "SignInUp": "node -e \"require('login-signup-react').RunReactLoginSignIn()\"",
     "SignInUpTW": "node -e \"require('login-signup-react').RunReactLoginSignInTW()\""
   },
   "dependencies": {
