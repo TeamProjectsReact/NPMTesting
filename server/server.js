@@ -48,30 +48,5 @@ app.use(express.static('public'));
 
 // endpoints
 
-app.post('/AddEditorData', (req, res) => {
-    // console.log(req.body.EditorData.title)
-
-    const tableName = "editor_data"
-    const data = {
-        editor_title: req.body.EditorData.title,
-        editor_data: req.body.text
-    }
-
-    JkMysql.insertData(connection, tableName, data, (result) => {
-        if(result){
-            return res.json({Status: "Success"})
-        }
-    })
-})
-
-app.get('/DisplayData', (req, res) => {
-    const tableName = "editor_data"
-
-    JkMysql.SelectAllData(connection, tableName, (result) => {
-        if(result){
-            res.json({Result: result})
-        }
-    })
-})
 
 app.listen(PORT, () => console.log(`Server is Running on PORT ${PORT}`));
