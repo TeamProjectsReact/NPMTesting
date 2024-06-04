@@ -74,6 +74,10 @@ app.post('/SignUp', (req, res) => {
     })
 })
 
+app.post('/SignIn', (req, res) => {
+    
+})
+
 // all endpoints end
 
 app.listen(PORT, () => console.log(`Server is Running on PORT ${PORT}`));
