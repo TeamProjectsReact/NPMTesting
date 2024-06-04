@@ -52,7 +52,7 @@ app.post('/SignUp', (req, res) => {
                         email: req.body.email,
                         password: PassHash,
                         role: "User", //change this as you need
-                        create_at: Date.now(),
+                        create_at: new Date(),
                         is_active: 1,
                         is_lock: 0
                     };
