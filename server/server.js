@@ -14,7 +14,7 @@ const PORT = process.env.PORT || 8081
 
 
 // make connection between server and mysql database
-const connection = JkMysql.ConnectToDatabase('localhost', 'root', '1234', 'db_cms')
+const connection = JkMysql.ConnectToDatabase('localhost', 'root', '1234', 'db_npm_testing')
 
 // configurate email sending 
 // uncomment and change according to your changes (if you need)
@@ -31,6 +31,11 @@ app.post('/SignUp', (req, res) => {
     // console.log(req.body)
 
     const tableName = "users"
+    const columns = []
+    const conditions = {
+        username: req.body.username,
+        email: req.body.email,
+    }
 })
 
 // all endpoints end
