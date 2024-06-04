@@ -87,7 +87,13 @@ app.post('/SignIn', (req, res) => {
 
             bcrypt.compare(password, result[0].password, (err, MatchPass) => {
                 if(MatchPass) {
-
+                    const token = jwt.sign(
+                        {email: result[0].Email, role: result[0].Role, is_active: result[0].is_active, is_lock: result[0].is_lock},
+                        'your-secret-key',
+                        {expiresIn: '1h'}
+                    );
+                    res.json({Token: token, Msg: "Success", LoginUser:result})
+                    // console.log(result)
                 }
                 else{
                     return res.json({ Error: "Password not Match" })
