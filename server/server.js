@@ -27,7 +27,9 @@ app.use(cors())
 
 // all endpoint start
 
-
+app.post('/SignUp', (req, res) => {
+    console.log(req.body)
+})
 
 // all endpoints end
 
