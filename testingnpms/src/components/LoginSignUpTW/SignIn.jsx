@@ -10,11 +10,17 @@ const SignIn = () => {
     })
 
     // send data to backend using axios
-    const headleSubmit = (e) => {
+    const headleSubmit = async (e) => {
         e.preventDefault();
 
         // login to system
-        // this will be updated in future versions
+
+        try{
+            
+        }
+        catch (err) {
+            console.log(err)
+        }
     }
   return (
     <div className='bg-gray-200 min-h-screen py-24 px-8'>
