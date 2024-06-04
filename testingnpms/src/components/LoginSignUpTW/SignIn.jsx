@@ -1,8 +1,11 @@
 import React, { useState } from 'react'
 import { BsMortarboardFill } from "react-icons/bs";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import  secureLocalStorage  from  "react-secure-storage";
 
 const SignIn = () => {
+    const navigate = useNavigate()
     // for login data
     const [LoginData, SetLoginData] = useState({
         email: '',
@@ -16,7 +19,7 @@ const SignIn = () => {
         // login to system
 
         try{
-            const res = await axios.post('http://localhost:8081/SignIn', SignInData)
+            const res = await axios.post('http://localhost:8081/SignIn', LoginData)
 
             const loginToken = res.data.Token;
 
@@ -36,14 +39,17 @@ const SignIn = () => {
                 }
                 else{
                     //get and store login user role and email
-                    const userRole = res.data.LoginUser[0].Role;
-                    const userEmail = res.data.LoginUser[0].Email;
+                    const userRole = res.data.LoginUser[0].role;
+                    const userEmail = res.data.LoginUser[0].email;
 
                     //store data in localstore so that use secureLocalStorage
                     secureLocalStorage.setItem("Login1", userRole);
                     secureLocalStorage.setItem("login2", userEmail);
-                    navigate('/Dashboard/Home');
+                    navigate('/Dashboard');
                 }
+            }
+            else{
+                alert(res.data.Error)
             }
         }
         catch (err) {
