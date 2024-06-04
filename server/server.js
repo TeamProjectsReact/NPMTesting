@@ -45,7 +45,8 @@ app.post('/SignUp', (req, res) => {
             bcrypt.hash(req.body.password, 10 (err, PassHash))
 
             if(PassHash){
-
+                const tableName = "users"
+                
             }
             else{
                 return res.json({ Error: "Internal Servaer Error While Hashing Password"})
