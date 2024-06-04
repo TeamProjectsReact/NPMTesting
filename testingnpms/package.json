@@ -7,13 +7,15 @@
     "dev": "vite",
     "build": "vite build",
     "serve": "vite preview",
-    "SignInUpTW": "node -e \"require('login-signup-react').RunReactLoginSignInTW()\""
+    "SignInUp": "node -e \"require('login-signup-react').RunReactLoginSignIn()\"",
+
+    "SignInUpBackend": "node -e \"require('login-signup-react').RunBackendMysqlNoMVC()\""
   },
   "dependencies": {
     "@jehankandy/react-jkcss": "file:jehankandy-react-jkcss-1.2.0.tgz",
     "axios": "^1.7.2",
     "js-wysiwyg-editor": "file:js-wysiwyg-editor-1.0.1.tgz",
-    "login-signup-react": "file:login-signup-react-2.0.0.tgz",
+    "login-signup-react": "file:login-signup-react-3.0.0.tgz",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^5.2.1",
